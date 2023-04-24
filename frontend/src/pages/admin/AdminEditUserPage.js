@@ -17,4 +17,3 @@ const AdminEditUserPage = () => {
 };
 
 export default AdminEditUserPage;
-

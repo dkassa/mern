@@ -27,4 +27,3 @@ const AddedToCartMessageComponent = ({ showCartMessage, setShowCartMessage }) =>
 };
 
 export default AddedToCartMessageComponent;
-

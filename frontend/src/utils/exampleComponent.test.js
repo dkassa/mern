@@ -16,4 +16,3 @@ test("counter test, not part of the e-comm app", () => {
   fireEvent.click(decrement)
   expect(message.textContent).toBe('Current count: -3')
 });
-

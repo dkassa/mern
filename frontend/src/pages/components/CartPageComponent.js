@@ -60,4 +60,3 @@ const CartPageComponent = ({
 };
 
 export default CartPageComponent;
-

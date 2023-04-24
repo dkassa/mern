@@ -58,4 +58,3 @@ test("if error is seen", async () => {
   await waitFor(() => screen.getByText(/Producta is not defined/i));
   expect(screen.getByText(/Producta is not defined/i)).toBeInTheDocument();
 });
-

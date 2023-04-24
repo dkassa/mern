@@ -96,4 +96,3 @@ const AdminChatRoomComponent = ({ chatRoom, roomIndex, socket, socketUser }) => 
 };
 
 export default AdminChatRoomComponent;
-

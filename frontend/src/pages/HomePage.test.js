@@ -39,4 +39,3 @@ test("if product name is seen", async () => {
   await waitFor(() => screen.getByText(/Product test Description/i));
   expect(screen.getByText(/Product test Description/i)).toBeInTheDocument();
 });
-

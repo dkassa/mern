@@ -51,4 +51,3 @@ const UserOrdersPageComponent = ({getOrders}) => {
 };
 
 export default UserOrdersPageComponent;
-

@@ -358,4 +358,3 @@ const CreateProductPageComponent = ({
 };
 
 export default CreateProductPageComponent;
-

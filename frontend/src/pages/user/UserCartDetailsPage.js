@@ -39,4 +39,3 @@ const UserCartDetailsPage = () => {
 };
 
 export default UserCartDetailsPage;
-

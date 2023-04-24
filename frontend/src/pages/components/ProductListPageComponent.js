@@ -75,7 +75,7 @@ const ProductListPageComponent = ({ getProducts, categories }) => {
         setLoading(false);
       })
       .catch((er) => {
-        //console.log(er);
+        console.log(er);
         setError(true);
       });
   }, [categoryName, pageNumParam, searchQuery, filters, sortOption]);
@@ -173,4 +173,3 @@ const ProductListPageComponent = ({ getProducts, categories }) => {
 };
 
 export default ProductListPageComponent;
-

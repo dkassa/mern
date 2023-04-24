@@ -37,4 +37,3 @@ const store = createStore(reducer, INITIAL_STATE, composeWithDevTools(applyMiddl
 
 
 export default store;
-

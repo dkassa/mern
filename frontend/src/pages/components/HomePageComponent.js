@@ -40,4 +40,3 @@ const HomePageComponent = ({ categories, getBestsellers }) => {
 };
 
 export default HomePageComponent;
-

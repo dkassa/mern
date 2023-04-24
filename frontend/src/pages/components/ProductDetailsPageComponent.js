@@ -232,4 +232,3 @@ const ProductDetailsPageComponent = ({
 };
 
 export default ProductDetailsPageComponent;
-

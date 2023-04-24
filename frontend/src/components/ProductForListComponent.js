@@ -3,7 +3,6 @@ import { Rating } from "react-simple-star-rating";
 import { LinkContainer } from "react-router-bootstrap";
 
 const ProductForListComponent = ({ productId, name, description, price, images, rating, reviewsNumber }) => {
-  console.log(images)
   return (
     <Card style={{ marginTop: "30px", marginBottom: "50px" }}>
       <Row>
@@ -12,7 +11,6 @@ const ProductForListComponent = ({ productId, name, description, price, images, 
             crossOrigin="anonymous"
             variant="top"
             src={images[0] ? images[0].path : ''}
-            
           />
         </Col>
         <Col lg={7}>
@@ -38,4 +36,3 @@ const ProductForListComponent = ({ productId, name, description, price, images, 
 };
 
 export default ProductForListComponent;
-

@@ -4,7 +4,7 @@ const ObjectId = require("mongodb").ObjectId;
 
 const getUserOrders = async (req, res, next) => {
     try {
-        const orders = await Order.find({ user: new ObjectId(req.user._id) });
+        const orders = await Order.find({ user: ObjectId(req.user._id) });
         res.send(orders);
     } catch (error) {
         next(error)
@@ -42,7 +42,7 @@ const createOrder = async (req, res, next) => {
         })
 
         const order = new Order({
-            user: new ObjectId(req.user._id),
+            user: ObjectId(req.user._id),
             orderTotal: orderTotal,
             cartItems: cartItems,
             paymentMethod: paymentMethod,

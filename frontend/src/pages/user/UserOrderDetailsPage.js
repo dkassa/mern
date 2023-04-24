@@ -9,7 +9,7 @@ const getOrder = async (orderId) => {
 }
 
 const loadPayPalScript = (cartSubtotal, cartItems, orderId, updateStateAfterOrder) => {
-    loadScript({"client-id": "AUkD1O8upYxiil6Ucf88cUPQw2OshHDbWc_Jdpt1vuxJr6qBEm2BxsGEOVgeWMBvRzo4SpsABfxgXsrh"})
+    loadScript({"client-id": "your PayPal client id"})
     .then(paypal => {
         paypal
         .Buttons(buttons(cartSubtotal, cartItems, orderId, updateStateAfterOrder))
@@ -95,4 +95,3 @@ const UserOrderDetailsPage = () => {
 };
 
 export default UserOrderDetailsPage;
-

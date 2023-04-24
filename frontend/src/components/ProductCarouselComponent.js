@@ -30,4 +30,3 @@ const ProductCarouselComponent = ({ bestSellers }) => {
 };
 
 export default ProductCarouselComponent;
-

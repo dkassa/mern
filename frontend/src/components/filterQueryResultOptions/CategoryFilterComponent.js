@@ -72,4 +72,3 @@ const CategoryFilterComponent = ({ setCategoriesFromFilter }) => {
 };
 
 export default CategoryFilterComponent;
-

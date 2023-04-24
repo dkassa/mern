@@ -33,10 +33,10 @@ const deleteCategory = async (req, res, next) => {
     // return res.send(req.params.category)
     try {
         if(req.params.category !== "Choose category") {
-            const categoryExists = await Category.findOneAndDelete({
+            const categoryExists = await Category.findOne({
                 name: decodeURIComponent(req.params.category)
             }).orFail()
-            //await categoryExists.remove()
+            await categoryExists.remove()
             res.json({categoryDeleted: true})
         }
     } catch (err) {

@@ -185,4 +185,3 @@ const UserOrderDetailsPageComponent = ({
 };
 
 export default UserOrderDetailsPageComponent;
-

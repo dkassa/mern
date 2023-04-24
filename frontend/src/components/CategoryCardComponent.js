@@ -20,4 +20,3 @@ const CategoryCardComponent = ({ category, idx }) => {
 };
 
 export default CategoryCardComponent;
-

@@ -11,4 +11,3 @@ const UserOrdersPage = () => {
 };
 
 export default UserOrdersPage;
-

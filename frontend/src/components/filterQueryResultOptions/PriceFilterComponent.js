@@ -12,4 +12,3 @@ const PriceFilterComponent = ({price, setPrice}) => {
 };
 
 export default PriceFilterComponent;
-

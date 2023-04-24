@@ -157,7 +157,7 @@ const getUserProfile = async (req, res, next) => {
 const writeReview = async (req, res, next) => {
     try {
 
-        //const session = await Review.startSession();
+        const session = await Review.startSession();
 
         // get comment, rating from request.body:
         const { comment, rating } = req.body;
@@ -168,9 +168,9 @@ const writeReview = async (req, res, next) => {
 
         // create review id manually because it is needed also for saving in Product collection
         const ObjectId = require("mongodb").ObjectId;
-        let reviewId = new ObjectId();
+        let reviewId = ObjectId();
 
-        //session.startTransaction();
+        session.startTransaction();
         await Review.create([
             {
                 _id: reviewId,
@@ -178,14 +178,14 @@ const writeReview = async (req, res, next) => {
                 rating: Number(rating),
                 user: { _id: req.user._id, name: req.user.name + " " + req.user.lastName },
             }
-        ]/** ,{ session: session }*/)
+        ],{ session: session })
 
-        const product = await Product.findById(req.params.productId).populate("reviews")/** .session(session)*/;
+        const product = await Product.findById(req.params.productId).populate("reviews").session(session);
         
         const alreadyReviewed = product.reviews.find((r) => r.user._id.toString() === req.user._id.toString());
         if (alreadyReviewed) {
-            //await session.abortTransaction();
-            //session.endSession();
+            await session.abortTransaction();
+            session.endSession();
             return res.status(400).send("product already reviewed");
         }
 
@@ -202,11 +202,11 @@ const writeReview = async (req, res, next) => {
         }
         await product.save();
 
-       // await session.commitTransaction();
-        //session.endSession();
+        await session.commitTransaction();
+        session.endSession();
         res.send('review created')
     } catch (err) {
-        //await session.abortTransaction();
+        await session.abortTransaction();
         next(err)   
     }
 }
@@ -249,4 +249,3 @@ const deleteUser = async (req, res, next) => {
 }
 
 module.exports = { getUsers, registerUser, loginUser, updateUserProfile, getUserProfile, writeReview, getUser, updateUser, deleteUser };
-
