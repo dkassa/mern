@@ -168,7 +168,7 @@ const writeReview = async (req, res, next) => {
 
         // create review id manually because it is needed also for saving in Product collection
         const ObjectId = require("mongodb").ObjectId;
-        let reviewId = ObjectId();
+        let reviewId = new ObjectId();
 
        // session.startTransaction();
         await Review.create([
