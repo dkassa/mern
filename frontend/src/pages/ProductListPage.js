@@ -6,9 +6,14 @@ const getProducts = async () => {
     return data
 }
 
+const categories = async () => {
+  const { data } = await axios.get('/api/categories');
+  return data
+}
+
 const ProductListPage = () => {
 
-  return <ProductListPageComponent getProducts={getProducts} />;
+  return <ProductListPageComponent categories={categories} getProducts={getProducts} />;
 };
 
 export default ProductListPage;
