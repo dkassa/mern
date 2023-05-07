@@ -42,7 +42,7 @@ const createOrder = async (req, res, next) => {
         })
 
         const order = new Order({
-            user: ObjectId(req.user._id),
+            user: new ObjectId(req.user._id),
             orderTotal: orderTotal,
             cartItems: cartItems,
             paymentMethod: paymentMethod,
