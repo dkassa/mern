@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import { Rating } from "react-simple-star-rating";
 import AddedToCartMessageComponent from "../../components/AddedToCartMessageComponent";
-
+import axios from "axios";
 import ImageZoom from "js-image-zoom";
 import { useEffect, useState, useRef } from "react";
 import MetaComponent from "../../components/MetaComponent";
@@ -65,8 +65,8 @@ const ProductDetailsPageComponent = ({
     }
   });
 
-  useEffect(() => {
-    getProductDetails(id)
+  useEffect(async () => {
+    await getProductDetails(id)
       .then((data) => {
         setProduct(data);
         setLoading(false);
