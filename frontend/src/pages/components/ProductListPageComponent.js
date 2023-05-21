@@ -6,7 +6,7 @@ import PriceFilterComponent from "../../components/filterQueryResultOptions/Pric
 import RatingFilterComponent from "../../components/filterQueryResultOptions/RatingFilterComponent";
 import CategoryFilterComponent from "../../components/filterQueryResultOptions/CategoryFilterComponent";
 import AttributesFilterComponent from "../../components/filterQueryResultOptions/AttributesFilterComponent";
-
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams, useLocation, useNavigate } from "react-router-dom";
 
@@ -32,9 +32,9 @@ const ProductListPageComponent = ({ getProducts, categories }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(() => {
+  useEffect(async() => {
     if (categoryName) {
-      let categoryAllData = categories.find(
+      let categoryAllData = await categories.find(
         (item) => item.name === categoryName.replaceAll(",", "/")
       );
       if (categoryAllData) {
