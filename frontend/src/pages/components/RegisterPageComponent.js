@@ -1,7 +1,8 @@
 import { Container, Row, Col, Form, Button, Alert } from "react-bootstrap";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
+import { Navigate } from "react-router-dom";
 const RegisterPageComponent = ({
   registerUserApiRequest,
   reduxDispatch,
@@ -14,6 +15,8 @@ const RegisterPageComponent = ({
     loading: false,
   });
   const [passwordsMatchState, setPasswordsMatchState] = useState(true);
+
+  const navigate=useNavigate()
 
   const onChange = () => {
     const password = document.querySelector("input[name=password]");
@@ -48,6 +51,7 @@ const RegisterPageComponent = ({
             success: data.success,
             loading: false,
           });
+          navigate('/user')
           reduxDispatch(setReduxUserState(data.userCreated));
           
         })
