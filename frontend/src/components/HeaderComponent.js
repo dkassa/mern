@@ -53,7 +53,7 @@ const HeaderComponent = () => {
   }
 
   useEffect(() => {
-      if (userInfo.isAdmin) {
+      if (userInfo.userLoggedIn.isAdmin) {
           var audio = new Audio("/audio/chat-msg.mp3");
           const socket = socketIOClient();
           socket.emit("admin connected with server", "Admin" + Math.floor(Math.random() * 1000000000000));
@@ -72,7 +72,7 @@ const HeaderComponent = () => {
           })
           return () => socket.disconnect();
       }
-  },[userInfo.isAdmin])
+  },[userInfo.userLoggedIn.isAdmin])
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
