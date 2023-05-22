@@ -64,25 +64,31 @@ const ProductListPageComponent = ({ getProducts, categories }) => {
       Object.entries(categoriesFromFilter).forEach(([category, checked]) => {
         if (checked) {
 
-          const alee=async ()=>{
+         
 
             var name = category.split("/")[0];
             cat.push(name);
             count = cat.filter((x) => x === name).length;
             if (count === 1) {
   
-             
-  
-                var index = await categories.findIndex((item) => item.name === name);
+             const cnt=async()=>{
+
+              
+              var index = categories.findIndex((item) => item.name === name);
               setAttrsFilter((attrs) => [...attrs, ...categories[index].attrs]);
+  
+
+             }
+
+             cnt()
   
               
 
-          }
+          
          
             
           }
-          alee()
+          
         }
       });
     }
