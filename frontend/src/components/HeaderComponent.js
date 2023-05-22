@@ -22,7 +22,7 @@ import { setChatRooms, setSocket, setMessageReceived, removeChatRoom } from "../
 
 const HeaderComponent = () => {
   const dispatch = useDispatch();
-  const { userInfo } = useSelector((state) => state.userRegisterLogin.userLoggedIn);
+  const { userInfo } = useSelector((state) => state.userRegisterLogin);
   const itemsCount = useSelector((state) => state.cart.itemsCount);
   const { categories } = useSelector((state) => state.getCategories);
   const { messageReceived } = useSelector((state) => state.adminChat);
@@ -53,6 +53,8 @@ const HeaderComponent = () => {
   }
 
   useEffect(() => {
+
+    console.log(userInfo)
       if (userInfo.isAdmin) {
           var audio = new Audio("/audio/chat-msg.mp3");
           const socket = socketIOClient();
