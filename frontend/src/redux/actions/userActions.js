@@ -11,7 +11,7 @@ export const setReduxUserState = (userCreated) => (dispatch) => {
 
 export const logout = () => (dispatch) => {
     
-const navigate=useNavigate()
+
 
     axios.get('/api/logout')
     localStorage.removeItem("userInfo");
@@ -19,5 +19,7 @@ const navigate=useNavigate()
     localStorage.removeItem("cart");
     dispatch({ type: LOGOUT_USER })
 
-    navigate('/login')
+    console.log("ok")
+
+
 }
