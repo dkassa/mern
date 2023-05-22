@@ -32,9 +32,9 @@ const ProductListPageComponent = ({ getProducts, categories }) => {
   const location = useLocation();
   const navigate = useNavigate();
 
-  useEffect(async() => {
+  useEffect(() => {
     if (categoryName) {
-      let categoryAllData = await categories.find(
+      let categoryAllData = categories.find(
         (item) => item.name === categoryName.replaceAll(",", "/")
       );
       if (categoryAllData) {
