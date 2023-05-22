@@ -34,14 +34,23 @@ const ProductListPageComponent = ({ getProducts, categories }) => {
 
   useEffect(() => {
     if (categoryName) {
-      let categoryAllData = categories.find(
-        (item) => item.name === categoryName.replaceAll(",", "/")
-      );
-      if (categoryAllData) {
-        let mainCategory = categoryAllData.name.split("/")[0];
-        let index = categories.findIndex((item) => item.name === mainCategory);
-        setAttrsFilter(categories[index].attrs);
+
+      const catalldata=async ()=>{
+
+        let categoryAllData = await categories.find(
+          (item) => item.name === categoryName.replaceAll(",", "/")
+        );
+
+        if (categoryAllData) {
+          let mainCategory = categoryAllData.name.split("/")[0];
+          let index = await categories.findIndex((item) => item.name === mainCategory);
+          setAttrsFilter(categories[index].attrs);
+        }
+     
+
       }
+      
+      
     } else {
       setAttrsFilter([]);
     }
