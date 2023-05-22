@@ -6,7 +6,7 @@ import { setReduxUserState } from "../redux/actions/userActions";
 import { useNavigate } from "react-router-dom";
 
 const registerUserApiRequest = async (name, lastName, email, password) => {
-  const navigate=useNavigate()
+
 
   const { data } = await axios.post("/api/users/register", {
     name,
@@ -15,7 +15,7 @@ const registerUserApiRequest = async (name, lastName, email, password) => {
     password,
   });
   sessionStorage.setItem("userInfo", JSON.stringify(data.userCreated));
-  if (data.success === "User created") navigate("/user");
+  if (data.success === "User created") window.location.href="/user";
   return data;
 };
 
