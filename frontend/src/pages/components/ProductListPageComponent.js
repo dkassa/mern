@@ -82,6 +82,7 @@ const ProductListPageComponent = ({ getProducts, categories }) => {
          
             
           }
+          alee()
         }
       });
     }
