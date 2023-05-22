@@ -22,7 +22,7 @@ import { setChatRooms, setSocket, setMessageReceived, removeChatRoom } from "../
 
 const HeaderComponent = () => {
   const dispatch = useDispatch();
-  const { userInfo } = useSelector((state) => state.userRegisterLogin);
+  const { userInfo } = useSelector((state) => state.userRegisterLogin.userLoggedIn);
   const itemsCount = useSelector((state) => state.cart.itemsCount);
   const { categories } = useSelector((state) => state.getCategories);
   const { messageReceived } = useSelector((state) => state.adminChat);
