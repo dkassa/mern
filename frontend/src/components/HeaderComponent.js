@@ -129,7 +129,7 @@ const HeaderComponent = () => {
                 <NavDropdown.Item eventKey="/user" as={Link} to="/user">
                   My profile
                 </NavDropdown.Item>
-                <NavDropdown.Item onClick={handle}>
+                <NavDropdown.Item onClick={handleLogout}>
                   Logout
                 </NavDropdown.Item>
               </NavDropdown>
