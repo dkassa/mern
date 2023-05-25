@@ -81,7 +81,7 @@ const HeaderComponent = () => {
           })
           return () => socket.disconnect();
       }
-  },[userInfo.isAdmin])
+  },[userInfo.isAdmin? userInfo.isAdmin : null])
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -129,7 +129,7 @@ const HeaderComponent = () => {
                 <NavDropdown.Item eventKey="/user" as={Link} to="/user">
                   My profile
                 </NavDropdown.Item>
-                <NavDropdown.Item onClick={handleLogout}>
+                <NavDropdown.Item onClick={handle}>
                   Logout
                 </NavDropdown.Item>
               </NavDropdown>
