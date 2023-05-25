@@ -22,8 +22,8 @@ export const logout = () => (dispatch) => {
     dispatch({ type: LOGOUT_USER })
 
     console.log("ok")
-    const navigate=useNavigate()
-    navigate("/login")
+    window.location.href="/login"
+    
 
 
 }
