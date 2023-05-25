@@ -22,7 +22,7 @@ export const logout = () => (dispatch) => {
     dispatch({ type: LOGOUT_USER })
 
     console.log("ok")
-    window.location.href="/login"
+    window.location.replace="/login"
     
 
 
