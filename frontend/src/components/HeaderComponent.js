@@ -36,6 +36,13 @@ const HeaderComponent = () => {
     dispatch(getCategories());
   }, [dispatch]);
 
+  const handleLogout=()=>{
+
+    dispatch(logout())
+    navigate('/login')
+
+  }
+
   const submitHandler = (e) => {
      if (e.keyCode && e.keyCode !== 13) return;
      e.preventDefault();
@@ -55,7 +62,7 @@ const HeaderComponent = () => {
   useEffect(() => {
 
     console.log(userInfo)
-      if (userInfo?.isAdmin) {
+      if (userInfo.isAdmin) {
           var audio = new Audio("/audio/chat-msg.mp3");
           const socket = socketIOClient();
           socket.emit("admin connected with server", "Admin" + Math.floor(Math.random() * 1000000000000));
@@ -74,7 +81,7 @@ const HeaderComponent = () => {
           })
           return () => socket.disconnect();
       }
-  },[userInfo?.isAdmin])
+  },[userInfo.isAdmin])
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -122,7 +129,7 @@ const HeaderComponent = () => {
                 <NavDropdown.Item eventKey="/user" as={Link} to="/user">
                   My profile
                 </NavDropdown.Item>
-                <NavDropdown.Item onClick={() => dispatch(logout())}>
+                <NavDropdown.Item onClick={handleLogout}>
                   Logout
                 </NavDropdown.Item>
               </NavDropdown>

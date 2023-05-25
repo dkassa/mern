@@ -3,6 +3,8 @@ import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
 
 export const setReduxUserState = (userCreated) => (dispatch) => {
+    
+
     dispatch({
         type: LOGIN_USER,
         payload: userCreated
