@@ -13,7 +13,7 @@ const UserProfilePageComponent = ({ updateUserApiRequest, fetchUser, userInfoFro
       fetchUser(userInfo._id)
       .then((data) => setUser(data))
       .catch((er) => console.log(er));
-  }, [userInfo._id])
+  }, [userInfo?._id])
 
   const onChange = () => {
     const password = document.querySelector("input[name=password]");
