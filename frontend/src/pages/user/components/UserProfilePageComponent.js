@@ -10,7 +10,7 @@ const UserProfilePageComponent = ({ updateUserApiRequest, fetchUser, userInfoFro
   const userInfo = userInfoFromRedux;
 
   useEffect(() => {
-      fetchUser(userInfo._id)
+      fetchUser(userInfo?._id)
       .then((data) => setUser(data))
       .catch((er) => console.log(er));
   }, [userInfo?._id])
