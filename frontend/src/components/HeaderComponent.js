@@ -62,7 +62,7 @@ const HeaderComponent = () => {
   useEffect(() => {
 
     console.log(userInfo)
-      if (userInfo.isAdmin) {
+      if (userInfo && userInfo.isAdmin) {
           var audio = new Audio("/audio/chat-msg.mp3");
           const socket = socketIOClient();
           socket.emit("admin connected with server", "Admin" + Math.floor(Math.random() * 1000000000000));
@@ -81,7 +81,7 @@ const HeaderComponent = () => {
           })
           return () => socket.disconnect();
       }
-  },[userInfo.isAdmin? userInfo.isAdmin : null])
+  },[userInfo && userInfo.isAdmin? userInfo.isAdmin : null])
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
