@@ -63,8 +63,8 @@ const HeaderComponent = () => {
 
   useEffect(() => {
 
-    console.log(userInfo)
-      if (userIn) {
+    console.log(userIn)
+      if (userIn.isAdmin) {
           var audio = new Audio("/audio/chat-msg.mp3");
           const socket = socketIOClient();
           socket.emit("admin connected with server", "Admin" + Math.floor(Math.random() * 1000000000000));
@@ -108,7 +108,7 @@ const HeaderComponent = () => {
             </InputGroup>
           </Nav>
           <Nav>
-            {userIn.isAdmin ? (
+            {userIn?.isAdmin ? (
               <LinkContainer to="/admin/orders">
                 <Nav.Link>
                   Admin
