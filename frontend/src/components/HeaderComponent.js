@@ -30,6 +30,8 @@ const HeaderComponent = () => {
   const [searchCategoryToggle, setSearchCategoryToggle] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
 
+  const userIn=userInfo || null
+
   const navigate = useNavigate();
 
   const handleLogout=()=>{
@@ -59,10 +61,10 @@ const HeaderComponent = () => {
      }
   }
 
- /**  useEffect(() => {
+  useEffect(() => {
 
     console.log(userInfo)
-      if (userInfo && userInfo.isAdmin) {
+      if (userIn) {
           var audio = new Audio("/audio/chat-msg.mp3");
           const socket = socketIOClient();
           socket.emit("admin connected with server", "Admin" + Math.floor(Math.random() * 1000000000000));
@@ -81,7 +83,7 @@ const HeaderComponent = () => {
           })
           return () => socket.disconnect();
       }
-  },[userInfo && userInfo.isAdmin? userInfo.isAdmin : null])*/
+  },[userIn])
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -106,7 +108,7 @@ const HeaderComponent = () => {
             </InputGroup>
           </Nav>
           <Nav>
-            {userInfo.isAdmin ? (
+            {userIn.isAdmin ? (
               <LinkContainer to="/admin/orders">
                 <Nav.Link>
                   Admin
@@ -114,9 +116,9 @@ const HeaderComponent = () => {
                   
                 </Nav.Link>
               </LinkContainer>
-            ) : userInfo.name && !userInfo.isAdmin ? (
+            ) : userIn.name && !userIn.isAdmin ? (
               <NavDropdown
-                title={`${userInfo.name} ${userInfo.lastName}`}
+                title={`${userIn.name} ${userIn.lastName}`}
                 id="collasible-nav-dropdown"
               >
                 <NavDropdown.Item
