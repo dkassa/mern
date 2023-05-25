@@ -32,6 +32,11 @@ const HeaderComponent = () => {
 
   const navigate = useNavigate();
 
+  const handleLogout=()=>{
+    dispatch(logout())
+    navigate("/login")
+  }
+
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
@@ -54,7 +59,7 @@ const HeaderComponent = () => {
      }
   }
 
-  useEffect(() => {
+ /**  useEffect(() => {
 
     console.log(userInfo)
       if (userInfo && userInfo.isAdmin) {
@@ -76,7 +81,7 @@ const HeaderComponent = () => {
           })
           return () => socket.disconnect();
       }
-  },[userInfo && userInfo.isAdmin? userInfo.isAdmin : null])
+  },[userInfo && userInfo.isAdmin? userInfo.isAdmin : null])*/
 
   return (
     <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
@@ -124,7 +129,7 @@ const HeaderComponent = () => {
                 <NavDropdown.Item eventKey="/user" as={Link} to="/user">
                   My profile
                 </NavDropdown.Item>
-                <NavDropdown.Item onClick={()=>dispatch(logout())}>
+                <NavDropdown.Item onClick={handleLogout}>
                   Logout
                 </NavDropdown.Item>
               </NavDropdown>
