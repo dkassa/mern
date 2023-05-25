@@ -13,7 +13,7 @@ export const setReduxUserState = (userCreated) => (dispatch) => {
 
 export const logout = () => (dispatch) => {
     
-    const navigate=useNavigate()
+    
 
     axios.get('/api/logout')
     localStorage.removeItem("userInfo");
@@ -22,7 +22,7 @@ export const logout = () => (dispatch) => {
     dispatch({ type: LOGOUT_USER })
 
     console.log("ok")
-
+    const navigate=useNavigate()
     navigate("/login")
 
 
