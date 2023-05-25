@@ -36,12 +36,7 @@ const HeaderComponent = () => {
     dispatch(getCategories());
   }, [dispatch]);
 
-  const handleLogout=()=>{
-
-    dispatch(logout())
-    navigate('/login')
-
-  }
+  
 
   const submitHandler = (e) => {
      if (e.keyCode && e.keyCode !== 13) return;
@@ -129,7 +124,7 @@ const HeaderComponent = () => {
                 <NavDropdown.Item eventKey="/user" as={Link} to="/user">
                   My profile
                 </NavDropdown.Item>
-                <NavDropdown.Item onClick={handleLogout}>
+                <NavDropdown.Item onClick={()=>dispatch(logout())}>
                   Logout
                 </NavDropdown.Item>
               </NavDropdown>
