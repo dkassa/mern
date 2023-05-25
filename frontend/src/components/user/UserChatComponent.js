@@ -69,7 +69,7 @@ const UserChatComponent = () => {
     }, 200)
   };
 
-  return !userInfo.isAdmin ? (
+  return !userInfo?.isAdmin ? (
     <>
       <input type="checkbox" id="check" />
       <label className="chat-btn" htmlFor="check">
