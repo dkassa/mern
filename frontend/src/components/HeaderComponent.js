@@ -116,9 +116,9 @@ const HeaderComponent = () => {
                   
                 </Nav.Link>
               </LinkContainer>
-            ) : userIn.name && !userIn.isAdmin ? (
+            ) : userIn?.name && !userIn.isAdmin ? (
               <NavDropdown
-                title={`${userIn.name} ${userIn.lastName}`}
+                title={`${userIn?.name} ${userIn?.lastName}`}
                 id="collasible-nav-dropdown"
               >
                 <NavDropdown.Item
