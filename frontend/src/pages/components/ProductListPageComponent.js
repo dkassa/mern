@@ -74,7 +74,7 @@ const ProductListPageComponent = ({ getProducts, categories }) => {
              const cnt=async()=>{
 
               
-              var index = categories.findIndex((item) => item.name === name);
+              var index = await categories.findIndex((item) => item.name === name);
               setAttrsFilter((attrs) => [...attrs, ...categories[index].attrs]);
   
 
