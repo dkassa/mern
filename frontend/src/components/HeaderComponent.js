@@ -36,6 +36,7 @@ const HeaderComponent = () => {
 
   const handleLogout=()=>{
     dispatch(logout())
+    navigate('/login')
     
   }
 
