@@ -1,16 +1,18 @@
 import { Nav, Navbar } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
-
+import { useNavigate } from "react-router-dom";
 import { logout } from "../../redux/actions/userActions";
 import { useDispatch } from "react-redux";
 
 const AdminLinksComponent = () => {
+
+    const navigate=useNavigate()
     const dispatch = useDispatch()
 
 
     const handlelogoout=()=>{
       dispatch(logout())
-      Navigate('/login')
+      navigate('/login')
     }
   return (
     <Navbar bg="light" variant="light">
