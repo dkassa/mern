@@ -6,6 +6,12 @@ import { useDispatch } from "react-redux";
 
 const AdminLinksComponent = () => {
     const dispatch = useDispatch()
+
+
+    const handlelogoout=()=>{
+      dispatch(logout())
+      Navigate('/login')
+    }
   return (
     <Navbar bg="light" variant="light">
       <Nav className="flex-column">
@@ -24,7 +30,7 @@ const AdminLinksComponent = () => {
         <LinkContainer to="/admin/analytics">
           <Nav.Link>Analytics</Nav.Link>
         </LinkContainer>
-        <Nav.Link onClick={() => dispatch(logout())}>Logout</Nav.Link>
+        <Nav.Link onClick={handlelogoout}>Logout</Nav.Link>
       </Nav>
     </Navbar>
   );
